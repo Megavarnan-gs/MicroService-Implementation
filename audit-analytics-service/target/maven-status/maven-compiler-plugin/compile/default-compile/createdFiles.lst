@@ -16,6 +16,7 @@ com\regulareedge\auditanalyticsservice\exception\GlobalExceptionHandler.class
 com\regulareedge\auditanalyticsservice\dto\response\ControlEvidenceResponse.class
 com\regulareedge\auditanalyticsservice\dto\response\MessageResponse.class
 com\regulareedge\auditanalyticsservice\dto\response\ObligationRefResponse.class
+com\regulareedge\auditanalyticsservice\config\CorsConfig.class
 com\regulareedge\auditanalyticsservice\service\implementation\AuditReviewServiceImpl.class
 com\regulareedge\auditanalyticsservice\repository\ControlEvidenceRepository.class
 com\regulareedge\auditanalyticsservice\dto\request\UpdateEvidenceStatusRequest.class

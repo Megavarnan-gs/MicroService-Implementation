@@ -76,6 +76,7 @@ com\regulareedge\compliancecoreservice\repository\DataCertificationRepository.cl
 com\regulareedge\compliancecoreservice\controller\DataCollectionController.class
 com\regulareedge\compliancecoreservice\security\JwtUtil.class
 com\regulareedge\compliancecoreservice\dto\response\MessageResponse.class
+com\regulareedge\compliancecoreservice\config\CorsConfig.class
 com\regulareedge\compliancecoreservice\dto\response\DataCertificationResponse.class
 com\regulareedge\compliancecoreservice\service\interfaces\UserValidationService.class
 com\regulareedge\compliancecoreservice\feignclient\UserServiceClient.class

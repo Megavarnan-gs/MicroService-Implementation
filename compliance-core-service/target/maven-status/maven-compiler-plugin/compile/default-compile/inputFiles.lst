@@ -46,6 +46,7 @@ C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com
 C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com\regulareedge\compliancecoreservice\common\enums\QualityCheckOutcome.java
 C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com\regulareedge\compliancecoreservice\repository\DataCollectionRequestRepository.java
 C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com\regulareedge\compliancecoreservice\repository\RegulatoryObligationRepository.java
+C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com\regulareedge\compliancecoreservice\config\CorsConfig.java
 C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com\regulareedge\compliancecoreservice\service\interfaces\CalendarService.java
 C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com\regulareedge\compliancecoreservice\mapper\RegulatorMapper.java
 C:\Users\2507305\Desktop\MicroServices\compliance-core-service\src\main\java\com\regulareedge\compliancecoreservice\entity\DataQualityCheck.java

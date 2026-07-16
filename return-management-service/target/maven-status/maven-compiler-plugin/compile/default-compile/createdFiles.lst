@@ -77,6 +77,7 @@ com\regulareedge\returnmanagementservice\dto\response\RegulatoryCorrespondenceRe
 com\regulareedge\returnmanagementservice\service\implementation\ReturnScheduleServiceImpl.class
 com\regulareedge\returnmanagementservice\service\implementation\RegulatoryReturnServiceImpl.class
 com\regulareedge\returnmanagementservice\service\implementation\UserValidationServiceImpl.class
+com\regulareedge\returnmanagementservice\config\CorsConfig.class
 com\regulareedge\returnmanagementservice\repository\ReturnScheduleRepository.class
 com\regulareedge\returnmanagementservice\config\SwaggerConfig.class
 com\regulareedge\returnmanagementservice\dto\request\ReturnScheduleRequest.class

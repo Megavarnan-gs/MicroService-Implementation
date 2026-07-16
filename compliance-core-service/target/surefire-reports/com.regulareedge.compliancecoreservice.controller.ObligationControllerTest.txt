@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.regulareedge.compliancecoreservice.controller.ObligationControllerTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.705 s -- in com.regulareedge.compliancecoreservice.controller.ObligationControllerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.732 s -- in com.regulareedge.compliancecoreservice.controller.ObligationControllerTest

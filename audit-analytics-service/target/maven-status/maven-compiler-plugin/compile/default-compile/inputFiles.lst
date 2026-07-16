@@ -55,6 +55,7 @@ C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\implementation\AuditReviewServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\common\enums\ReportScope.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\config\FeignConfig.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\config\CorsConfig.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\exception\GlobalExceptionHandler.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\controller\DashboardController.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\dto\response\ControlEvidenceResponse.java

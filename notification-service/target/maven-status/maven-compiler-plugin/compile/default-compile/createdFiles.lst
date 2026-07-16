@@ -20,6 +20,7 @@ com\regulareedge\notificationservice\dto\response\ApiErrorResponse.class
 com\regulareedge\notificationservice\aspect\LoggingAspect.class
 com\regulareedge\notificationservice\dto\response\NotificationResponse.class
 com\regulareedge\notificationservice\common\enums\NotificationStatus.class
+com\regulareedge\notificationservice\config\CorsConfig.class
 com\regulareedge\notificationservice\feignclient\UserServiceClient.class
 com\regulareedge\notificationservice\repository\NotificationRepository.class
 com\regulareedge\notificationservice\common\enums\NotificationCategory.class

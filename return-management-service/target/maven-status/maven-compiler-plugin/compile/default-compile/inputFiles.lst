@@ -26,6 +26,7 @@ C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\c
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\response\RegulatoryCorrespondenceResponse.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\controller\ReturnScheduleController.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\service\interfaces\DashboardService.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\config\CorsConfig.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\request\ReturnScheduleRequest.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\exception\DownstreamServiceException.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\exception\InvalidRequestException.java

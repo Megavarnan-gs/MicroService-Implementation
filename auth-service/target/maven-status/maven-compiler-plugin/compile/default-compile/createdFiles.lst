@@ -11,6 +11,7 @@ com\regulareedge\authservice\mapper\UserMapper.class
 com\regulareedge\authservice\security\JwtAuthenticationEntryPoint.class
 com\regulareedge\authservice\exception\InvalidCredentialsException.class
 com\regulareedge\authservice\dto\request\RegisterRequest.class
+com\regulareedge\authservice\config\CorsConfig.class
 com\regulareedge\authservice\service\implementation\PasswordResetServiceImpl.class
 com\regulareedge\authservice\exception\ResourceNotFoundException.class
 com\regulareedge\authservice\service\interfaces\UserService.class

@@ -14,6 +14,7 @@ C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareed
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\response\LoginResponse.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\response\MessageResponse.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\repository\RefreshTokenRepository.java
+C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\config\CorsConfig.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\request\UpdateUserStatusRequest.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\interfaces\AuthService.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\exception\TokenExpiredException.java

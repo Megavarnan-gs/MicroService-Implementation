@@ -3,6 +3,7 @@ C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\re
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\security\JwtAuthenticationFilter.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\mapper\NotificationMapper.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\controller\NotificationController.java
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\config\CorsConfig.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\dto\response\UserExistsResponse.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\security\JwtAuthenticationEntryPoint.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\dto\response\MessageResponse.java
