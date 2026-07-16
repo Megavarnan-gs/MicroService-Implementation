@@ -1,0 +1,6 @@
+com\regulareedge\apigateway\ApiGatewayApplication.class
+com\regulareedge\apigateway\filter\JwtAuthenticationGlobalFilter.class
+com\regulareedge\apigateway\filter\CorrelationIdFilter.class
+com\regulareedge\apigateway\filter\RequestLoggingFilter.class
+com\regulareedge\apigateway\exception\GlobalErrorWebExceptionHandler.class
+com\regulareedge\apigateway\config\JwtProperties.class

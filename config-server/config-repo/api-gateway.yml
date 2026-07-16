@@ -1,0 +1,74 @@
+server:
+  port: 9080
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**,/users/**
+        - id: compliance-core-service
+          uri: lb://compliance-core-service
+          predicates:
+            - Path=/regulators/**,/obligations/**,/calendar/**,/data-requests/**,/data-quality/**,/certifications/**
+        - id: return-management-service
+          uri: lb://return-management-service
+          predicates:
+            - Path=/returns/**,/schedules/**,/submissions/**,/correspondence/**,/penalties/**
+        - id: audit-analytics-service
+          uri: lb://audit-analytics-service
+          predicates:
+            - Path=/audit-reviews/**,/control-evidence/**,/analytics/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notifications/**
+        - id: auth-service-docs
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth-service/v3/api-docs
+          filters:
+            - StripPrefix=1
+        - id: compliance-core-service-docs
+          uri: lb://compliance-core-service
+          predicates:
+            - Path=/compliance-core-service/v3/api-docs
+          filters:
+            - StripPrefix=1
+        - id: return-management-service-docs
+          uri: lb://return-management-service
+          predicates:
+            - Path=/return-management-service/v3/api-docs
+          filters:
+            - StripPrefix=1
+        - id: audit-analytics-service-docs
+          uri: lb://audit-analytics-service
+          predicates:
+            - Path=/audit-analytics-service/v3/api-docs
+          filters:
+            - StripPrefix=1
+        - id: notification-service-docs
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification-service/v3/api-docs
+          filters:
+            - StripPrefix=1
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: auth-service
+        url: /auth-service/v3/api-docs
+      - name: compliance-core-service
+        url: /compliance-core-service/v3/api-docs
+      - name: return-management-service
+        url: /return-management-service/v3/api-docs
+      - name: audit-analytics-service
+        url: /audit-analytics-service/v3/api-docs
+      - name: notification-service
+        url: /notification-service/v3/api-docs

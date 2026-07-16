@@ -1,0 +1,6 @@
+com\regulareedge\compliancecoreservice\service\DataCollectionServiceImplTest.class
+com\regulareedge\compliancecoreservice\controller\ObligationControllerTest.class
+com\regulareedge\compliancecoreservice\service\CalendarServiceImplTest.class
+com\regulareedge\compliancecoreservice\controller\RegulatorControllerTest.class
+com\regulareedge\compliancecoreservice\service\ObligationServiceImplTest.class
+com\regulareedge\compliancecoreservice\service\RegulatorServiceImplTest.class

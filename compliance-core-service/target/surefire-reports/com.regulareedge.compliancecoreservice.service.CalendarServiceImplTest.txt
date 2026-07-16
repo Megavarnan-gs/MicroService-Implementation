@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.regulareedge.compliancecoreservice.service.CalendarServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 s -- in com.regulareedge.compliancecoreservice.service.CalendarServiceImplTest

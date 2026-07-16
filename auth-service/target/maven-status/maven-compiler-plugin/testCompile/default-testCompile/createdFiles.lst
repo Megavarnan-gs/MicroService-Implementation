@@ -1,0 +1,3 @@
+com\regulareedge\authservice\controller\AuthControllerTest.class
+com\regulareedge\authservice\service\UserServiceImplTest.class
+com\regulareedge\authservice\service\AuthServiceImplTest.class

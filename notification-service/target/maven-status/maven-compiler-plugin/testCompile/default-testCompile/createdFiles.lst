@@ -1,0 +1,3 @@
+com\regulareedge\notificationservice\controller\NotificationControllerTest.class
+com\regulareedge\notificationservice\service\NotificationServiceImplTest.class
+com\regulareedge\notificationservice\service\NotificationTemplateServiceImplTest.class

@@ -1,0 +1,6 @@
+C:\Users\2507305\Desktop\MicroServices\api-gateway\src\main\java\com\regulareedge\apigateway\filter\RequestLoggingFilter.java
+C:\Users\2507305\Desktop\MicroServices\api-gateway\src\main\java\com\regulareedge\apigateway\ApiGatewayApplication.java
+C:\Users\2507305\Desktop\MicroServices\api-gateway\src\main\java\com\regulareedge\apigateway\filter\JwtAuthenticationGlobalFilter.java
+C:\Users\2507305\Desktop\MicroServices\api-gateway\src\main\java\com\regulareedge\apigateway\config\JwtProperties.java
+C:\Users\2507305\Desktop\MicroServices\api-gateway\src\main\java\com\regulareedge\apigateway\exception\GlobalErrorWebExceptionHandler.java
+C:\Users\2507305\Desktop\MicroServices\api-gateway\src\main\java\com\regulareedge\apigateway\filter\CorrelationIdFilter.java

@@ -1,0 +1,2 @@
+com\regulareedge\apigateway\filter\CorrelationIdFilterTest.class
+com\regulareedge\apigateway\filter\JwtAuthenticationGlobalFilterTest.class

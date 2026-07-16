@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: return-management-service
+  config:
+    import: optional:configserver:http://localhost:8888

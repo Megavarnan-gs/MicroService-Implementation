@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+
+eureka:
+  client:
+    enabled: false
+
+jwt:
+  secret: RegulareEdgeSecretKeyForJwtSigningMustBeAtLeast256BitsLongForHS256Algorithm2026
+  access-token-expiration-ms: 3600000
+  refresh-token-expiration-ms: 604800000
