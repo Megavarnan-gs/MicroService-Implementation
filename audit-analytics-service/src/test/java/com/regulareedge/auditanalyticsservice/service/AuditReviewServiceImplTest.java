@@ -7,6 +7,7 @@ import com.regulareedge.auditanalyticsservice.dto.response.AuditReviewResponse;
 import com.regulareedge.auditanalyticsservice.entity.AuditReview;
 import com.regulareedge.auditanalyticsservice.repository.AuditReviewRepository;
 import com.regulareedge.auditanalyticsservice.service.implementation.AuditReviewServiceImpl;
+import com.regulareedge.auditanalyticsservice.service.interfaces.AuditLogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,13 +29,16 @@ class AuditReviewServiceImplTest {
     @Mock
     private AuditReviewRepository auditReviewRepository;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private AuditReviewServiceImpl auditReviewService;
 
     private AuditReview review;
 
     @BeforeEach
     void setUp() {
-        auditReviewService = new AuditReviewServiceImpl(auditReviewRepository);
+        auditReviewService = new AuditReviewServiceImpl(auditReviewRepository, auditLogService);
 
         review = new AuditReview();
         review.setReviewId(1);
@@ -69,6 +73,8 @@ class AuditReviewServiceImplTest {
         assertEquals(AuditReviewStatus.DRAFT, captor.getValue().getStatus());
         assertEquals(AuditRating.SATISFACTORY, response.getRating());
         assertEquals(10, response.getObligationId());
+
+        verify(auditLogService).log(5, "AUDIT_REVIEW_CREATED", "AuditReview", 1);
     }
 
     @Test

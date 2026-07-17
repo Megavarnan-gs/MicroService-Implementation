@@ -7,6 +7,7 @@ import com.regulareedge.authservice.exception.ResourceNotFoundException;
 import com.regulareedge.authservice.exception.TokenExpiredException;
 import com.regulareedge.authservice.repository.PasswordResetTokenRepository;
 import com.regulareedge.authservice.repository.UserRepository;
+import com.regulareedge.authservice.service.interfaces.AuditLogService;
 import com.regulareedge.authservice.service.interfaces.PasswordResetService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,13 +23,16 @@ public class PasswordResetServiceImpl implements PasswordResetService {
     private final UserRepository userRepository;
     private final PasswordResetTokenRepository passwordResetTokenRepository;
     private final PasswordEncoder passwordEncoder;
+    private final AuditLogService auditLogService;
 
     public PasswordResetServiceImpl(UserRepository userRepository,
                                      PasswordResetTokenRepository passwordResetTokenRepository,
-                                     PasswordEncoder passwordEncoder) {
+                                     PasswordEncoder passwordEncoder,
+                                     AuditLogService auditLogService) {
         this.userRepository = userRepository;
         this.passwordResetTokenRepository = passwordResetTokenRepository;
         this.passwordEncoder = passwordEncoder;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -43,6 +47,8 @@ public class PasswordResetServiceImpl implements PasswordResetService {
         resetToken.setUsed(false);
 
         passwordResetTokenRepository.save(resetToken);
+
+        auditLogService.log(user.getUserId(), "PASSWORD_RESET_REQUESTED", "User", user.getUserId());
 
         return new MessageResponse("Password reset instructions have been generated for " + email);
     }
@@ -68,6 +74,8 @@ public class PasswordResetServiceImpl implements PasswordResetService {
 
         resetToken.setUsed(true);
         passwordResetTokenRepository.save(resetToken);
+
+        auditLogService.log(user.getUserId(), "PASSWORD_RESET_COMPLETED", "User", user.getUserId());
 
         return new MessageResponse("Password has been reset successfully");
     }

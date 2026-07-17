@@ -6,6 +6,8 @@ com\regulareedge\compliancecoreservice\repository\DataCollectionRequestRepositor
 com\regulareedge\compliancecoreservice\dto\request\DataQualityCheckRequest.class
 com\regulareedge\compliancecoreservice\mapper\ObligationMapper.class
 com\regulareedge\compliancecoreservice\dto\response\RegulatoryObligationResponse.class
+com\regulareedge\compliancecoreservice\repository\AuditLogRepository.class
+com\regulareedge\compliancecoreservice\service\interfaces\AuditLogService.class
 com\regulareedge\compliancecoreservice\common\enums\DataRequestStatus.class
 com\regulareedge\compliancecoreservice\dto\response\UserExistsResponse.class
 com\regulareedge\compliancecoreservice\service\interfaces\CalendarService.class
@@ -13,6 +15,7 @@ com\regulareedge\compliancecoreservice\controller\CalendarController.class
 com\regulareedge\compliancecoreservice\dto\request\DataCollectionCreateRequest.class
 com\regulareedge\compliancecoreservice\common\enums\QualityCheckOutcome.class
 com\regulareedge\compliancecoreservice\mapper\DataCertificationMapper.class
+com\regulareedge\compliancecoreservice\entity\AuditLog.class
 com\regulareedge\compliancecoreservice\entity\Regulator.class
 com\regulareedge\compliancecoreservice\config\SecurityConfig.class
 com\regulareedge\compliancecoreservice\entity\DataCertification.class
@@ -28,6 +31,7 @@ com\regulareedge\compliancecoreservice\service\implementation\UserValidationServ
 com\regulareedge\compliancecoreservice\service\implementation\CalendarServiceImpl.class
 com\regulareedge\compliancecoreservice\mapper\DataCollectionRequestMapper.class
 com\regulareedge\compliancecoreservice\dto\request\UpdateCalendarStatusRequest.class
+com\regulareedge\compliancecoreservice\dto\response\AuditLogResponse.class
 com\regulareedge\compliancecoreservice\service\implementation\DataCertificationServiceImpl.class
 com\regulareedge\compliancecoreservice\dto\response\DataQualityCheckResponse.class
 com\regulareedge\compliancecoreservice\dto\request\RegulatorRequest.class
@@ -36,6 +40,7 @@ com\regulareedge\compliancecoreservice\service\implementation\RegulatorServiceIm
 com\regulareedge\compliancecoreservice\common\enums\CertificationStatus.class
 com\regulareedge\compliancecoreservice\exception\DuplicateResourceException.class
 com\regulareedge\compliancecoreservice\dto\response\ComplianceCalendarResponse.class
+com\regulareedge\compliancecoreservice\service\implementation\AuditLogServiceImpl.class
 com\regulareedge\compliancecoreservice\common\enums\CalendarStatus.class
 com\regulareedge\compliancecoreservice\ComplianceCoreServiceApplication.class
 com\regulareedge\compliancecoreservice\feignclient\fallback\UserServiceClientFallback.class
@@ -64,6 +69,7 @@ com\regulareedge\compliancecoreservice\exception\InvalidRequestException.class
 com\regulareedge\compliancecoreservice\service\interfaces\DataCertificationService.class
 com\regulareedge\compliancecoreservice\aspect\LoggingAspect.class
 com\regulareedge\compliancecoreservice\repository\RegulatorRepository.class
+com\regulareedge\compliancecoreservice\controller\AuditLogController.class
 com\regulareedge\compliancecoreservice\repository\RegulatoryObligationRepository.class
 com\regulareedge\compliancecoreservice\exception\DownstreamServiceException.class
 com\regulareedge\compliancecoreservice\security\JwtAuthenticationEntryPoint.class
@@ -80,4 +86,5 @@ com\regulareedge\compliancecoreservice\config\CorsConfig.class
 com\regulareedge\compliancecoreservice\dto\response\DataCertificationResponse.class
 com\regulareedge\compliancecoreservice\service\interfaces\UserValidationService.class
 com\regulareedge\compliancecoreservice\feignclient\UserServiceClient.class
+com\regulareedge\compliancecoreservice\mapper\AuditLogMapper.class
 com\regulareedge\compliancecoreservice\security\JwtAuthenticationFilter.class

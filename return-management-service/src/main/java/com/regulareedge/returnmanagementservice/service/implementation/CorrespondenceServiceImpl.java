@@ -10,6 +10,7 @@ import com.regulareedge.returnmanagementservice.exception.InvalidRequestExceptio
 import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundException;
 import com.regulareedge.returnmanagementservice.mapper.CorrespondenceMapper;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryCorrespondenceRepository;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.ComplianceReferenceValidationService;
 import com.regulareedge.returnmanagementservice.service.interfaces.CorrespondenceService;
 import com.regulareedge.returnmanagementservice.service.interfaces.UserValidationService;
@@ -27,13 +28,16 @@ public class CorrespondenceServiceImpl implements CorrespondenceService {
     private final RegulatoryCorrespondenceRepository correspondenceRepository;
     private final ComplianceReferenceValidationService complianceReferenceValidationService;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public CorrespondenceServiceImpl(RegulatoryCorrespondenceRepository correspondenceRepository,
                                       ComplianceReferenceValidationService complianceReferenceValidationService,
-                                      UserValidationService userValidationService) {
+                                      UserValidationService userValidationService,
+                                      AuditLogService auditLogService) {
         this.correspondenceRepository = correspondenceRepository;
         this.complianceReferenceValidationService = complianceReferenceValidationService;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -56,6 +60,8 @@ public class CorrespondenceServiceImpl implements CorrespondenceService {
         correspondence.setStatus(CorrespondenceStatus.OPEN);
 
         RegulatoryCorrespondence saved = correspondenceRepository.save(correspondence);
+        auditLogService.log(saved.getAssignedToId(), "CORRESPONDENCE_CREATED", "RegulatoryCorrespondence",
+                saved.getCorrespondenceId());
         return CorrespondenceMapper.toResponse(saved);
     }
 
@@ -86,6 +92,8 @@ public class CorrespondenceServiceImpl implements CorrespondenceService {
 
         correspondence.setAssignedToId(request.getAssignedToId());
         RegulatoryCorrespondence saved = correspondenceRepository.save(correspondence);
+        auditLogService.log(saved.getAssignedToId(), "CORRESPONDENCE_ASSIGNED", "RegulatoryCorrespondence",
+                saved.getCorrespondenceId());
         return CorrespondenceMapper.toResponse(saved);
     }
 
@@ -97,6 +105,8 @@ public class CorrespondenceServiceImpl implements CorrespondenceService {
 
         correspondence.setStatus(request.getStatus());
         RegulatoryCorrespondence saved = correspondenceRepository.save(correspondence);
+        auditLogService.log(null, "CORRESPONDENCE_STATUS_UPDATED", "RegulatoryCorrespondence",
+                saved.getCorrespondenceId());
         return CorrespondenceMapper.toResponse(saved);
     }
 }

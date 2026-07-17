@@ -12,6 +12,7 @@ import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundExcept
 import com.regulareedge.returnmanagementservice.mapper.PenaltyMapper;
 import com.regulareedge.returnmanagementservice.repository.PenaltyProceedingRepository;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryCorrespondenceRepository;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.ComplianceReferenceValidationService;
 import com.regulareedge.returnmanagementservice.service.interfaces.PenaltyService;
 import org.springframework.stereotype.Service;
@@ -24,13 +25,16 @@ public class PenaltyServiceImpl implements PenaltyService {
     private final PenaltyProceedingRepository penaltyProceedingRepository;
     private final RegulatoryCorrespondenceRepository correspondenceRepository;
     private final ComplianceReferenceValidationService complianceReferenceValidationService;
+    private final AuditLogService auditLogService;
 
     public PenaltyServiceImpl(PenaltyProceedingRepository penaltyProceedingRepository,
                                RegulatoryCorrespondenceRepository correspondenceRepository,
-                               ComplianceReferenceValidationService complianceReferenceValidationService) {
+                               ComplianceReferenceValidationService complianceReferenceValidationService,
+                               AuditLogService auditLogService) {
         this.penaltyProceedingRepository = penaltyProceedingRepository;
         this.correspondenceRepository = correspondenceRepository;
         this.complianceReferenceValidationService = complianceReferenceValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -52,6 +56,7 @@ public class PenaltyServiceImpl implements PenaltyService {
         penalty.setStatus(PenaltyStatus.OPEN);
 
         PenaltyProceeding saved = penaltyProceedingRepository.save(penalty);
+        auditLogService.log(null, "PENALTY_CREATED", "PenaltyProceeding", saved.getPenaltyId());
         return PenaltyMapper.toResponse(saved);
     }
 
@@ -82,6 +87,7 @@ public class PenaltyServiceImpl implements PenaltyService {
         }
 
         PenaltyProceeding saved = penaltyProceedingRepository.save(penalty);
+        auditLogService.log(null, "PENALTY_STATUS_UPDATED", "PenaltyProceeding", saved.getPenaltyId());
         return PenaltyMapper.toResponse(saved);
     }
 

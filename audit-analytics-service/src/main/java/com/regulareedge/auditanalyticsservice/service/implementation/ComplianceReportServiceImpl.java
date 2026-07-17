@@ -12,6 +12,7 @@ import com.regulareedge.auditanalyticsservice.entity.ComplianceReport;
 import com.regulareedge.auditanalyticsservice.exception.DownstreamServiceException;
 import com.regulareedge.auditanalyticsservice.mapper.ComplianceReportMapper;
 import com.regulareedge.auditanalyticsservice.repository.ComplianceReportRepository;
+import com.regulareedge.auditanalyticsservice.service.interfaces.AuditLogService;
 import com.regulareedge.auditanalyticsservice.service.interfaces.ComplianceCoreQueryService;
 import com.regulareedge.auditanalyticsservice.service.interfaces.ComplianceReportService;
 import com.regulareedge.auditanalyticsservice.service.interfaces.ReturnManagementQueryService;
@@ -38,15 +39,18 @@ public class ComplianceReportServiceImpl implements ComplianceReportService {
     private final ReturnManagementQueryService returnManagementQueryService;
     private final ComplianceCoreQueryService complianceCoreQueryService;
     private final ObjectMapper objectMapper;
+    private final AuditLogService auditLogService;
 
     public ComplianceReportServiceImpl(ComplianceReportRepository complianceReportRepository,
                                         ReturnManagementQueryService returnManagementQueryService,
                                         ComplianceCoreQueryService complianceCoreQueryService,
-                                        ObjectMapper objectMapper) {
+                                        ObjectMapper objectMapper,
+                                        AuditLogService auditLogService) {
         this.complianceReportRepository = complianceReportRepository;
         this.returnManagementQueryService = returnManagementQueryService;
         this.complianceCoreQueryService = complianceCoreQueryService;
         this.objectMapper = objectMapper;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -95,6 +99,7 @@ public class ComplianceReportServiceImpl implements ComplianceReportService {
         report.setGeneratedDate(LocalDate.now());
 
         ComplianceReport saved = complianceReportRepository.save(report);
+        auditLogService.log(null, "REPORT_GENERATED", "ComplianceReport", saved.getReportId());
         return ComplianceReportMapper.toResponse(saved);
     }
 

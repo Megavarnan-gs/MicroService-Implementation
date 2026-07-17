@@ -11,6 +11,7 @@ import com.regulareedge.returnmanagementservice.exception.InvalidRequestExceptio
 import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundException;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryCorrespondenceRepository;
 import com.regulareedge.returnmanagementservice.service.implementation.CorrespondenceServiceImpl;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.ComplianceReferenceValidationService;
 import com.regulareedge.returnmanagementservice.service.interfaces.UserValidationService;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +41,9 @@ class CorrespondenceServiceImplTest {
     @Mock
     private UserValidationService userValidationService;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private CorrespondenceServiceImpl correspondenceService;
 
     private RegulatoryCorrespondence correspondence;
@@ -47,7 +51,7 @@ class CorrespondenceServiceImplTest {
     @BeforeEach
     void setUp() {
         correspondenceService = new CorrespondenceServiceImpl(
-                correspondenceRepository, complianceReferenceValidationService, userValidationService);
+                correspondenceRepository, complianceReferenceValidationService, userValidationService, auditLogService);
 
         correspondence = new RegulatoryCorrespondence();
         correspondence.setCorrespondenceId(1);
@@ -76,6 +80,7 @@ class CorrespondenceServiceImplTest {
 
         assertEquals("Late filing notice", response.getSubject());
         assertEquals(CorrespondenceStatus.OPEN, response.getStatus());
+        org.mockito.Mockito.verify(auditLogService).log(7, "CORRESPONDENCE_CREATED", "RegulatoryCorrespondence", 1);
     }
 
     @Test

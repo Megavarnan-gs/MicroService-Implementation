@@ -1,5 +1,7 @@
+com\regulareedge\authservice\controller\AuditLogController.class
 com\regulareedge\authservice\exception\DuplicateResourceException.class
 com\regulareedge\authservice\entity\PasswordResetToken.class
+com\regulareedge\authservice\dto\response\AuditLogResponse.class
 com\regulareedge\authservice\entity\User.class
 com\regulareedge\authservice\exception\GlobalExceptionHandler.class
 com\regulareedge\authservice\dto\request\LoginRequest.class
@@ -19,7 +21,9 @@ com\regulareedge\authservice\service\implementation\CustomUserDetailsServiceImpl
 com\regulareedge\authservice\repository\RefreshTokenRepository.class
 com\regulareedge\authservice\service\interfaces\TokenService.class
 com\regulareedge\authservice\entity\AuditLog.class
+com\regulareedge\authservice\mapper\AuditLogMapper.class
 com\regulareedge\authservice\service\interfaces\PasswordResetService.class
+com\regulareedge\authservice\service\implementation\AuditLogServiceImpl.class
 com\regulareedge\authservice\dto\response\TokenResponse.class
 com\regulareedge\authservice\dto\response\UserResponse.class
 com\regulareedge\authservice\common\enums\UserStatus.class
@@ -37,6 +41,7 @@ com\regulareedge\authservice\common\constants\AppConstants.class
 com\regulareedge\authservice\controller\AuthController.class
 com\regulareedge\authservice\repository\AuditLogRepository.class
 com\regulareedge\authservice\service\implementation\UserServiceImpl.class
+com\regulareedge\authservice\service\interfaces\AuditLogService.class
 com\regulareedge\authservice\entity\RefreshToken.class
 com\regulareedge\authservice\controller\UserController.class
 com\regulareedge\authservice\config\SecurityConfig.class

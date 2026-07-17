@@ -9,10 +9,10 @@ import com.regulareedge.authservice.dto.response.UserResponse;
 import com.regulareedge.authservice.entity.User;
 import com.regulareedge.authservice.exception.DuplicateResourceException;
 import com.regulareedge.authservice.exception.InvalidCredentialsException;
-import com.regulareedge.authservice.repository.AuditLogRepository;
 import com.regulareedge.authservice.repository.UserRepository;
 import com.regulareedge.authservice.security.JwtUtil;
 import com.regulareedge.authservice.service.implementation.AuthServiceImpl;
+import com.regulareedge.authservice.service.interfaces.AuditLogService;
 import com.regulareedge.authservice.service.interfaces.TokenService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,7 +38,7 @@ class AuthServiceImplTest {
     private UserRepository userRepository;
 
     @Mock
-    private AuditLogRepository auditLogRepository;
+    private AuditLogService auditLogService;
 
     @Mock
     private PasswordEncoder passwordEncoder;
@@ -64,7 +64,7 @@ class AuthServiceImplTest {
         jwtProperties.setAccessTokenExpirationMs(3600000);
         jwtProperties.setRefreshTokenExpirationMs(604800000);
 
-        authService = new AuthServiceImpl(userRepository, auditLogRepository, passwordEncoder, jwtUtil,
+        authService = new AuthServiceImpl(userRepository, auditLogService, passwordEncoder, jwtUtil,
                 tokenService, jwtProperties);
 
         registerRequest = new RegisterRequest();

@@ -13,6 +13,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.repository.RegulatorRepository;
 import com.regulareedge.compliancecoreservice.repository.RegulatoryObligationRepository;
 import com.regulareedge.compliancecoreservice.service.implementation.ObligationServiceImpl;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.UserValidationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,6 +42,9 @@ class ObligationServiceImplTest {
     @Mock
     private UserValidationService userValidationService;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private ObligationServiceImpl obligationService;
 
     private Regulator activeRegulator;
@@ -47,7 +52,8 @@ class ObligationServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        obligationService = new ObligationServiceImpl(obligationRepository, regulatorRepository, userValidationService);
+        obligationService = new ObligationServiceImpl(obligationRepository, regulatorRepository,
+                userValidationService, auditLogService);
 
         activeRegulator = new Regulator();
         activeRegulator.setRegulatorId(1);
@@ -81,6 +87,7 @@ class ObligationServiceImplTest {
 
         assertEquals("Liquidity Return", response.getReturnName());
         assertEquals(ObligationStatus.ACTIVE, response.getStatus());
+        verify(auditLogService).log(5, "OBLIGATION_CREATED", "RegulatoryObligation", obligation.getObligationId());
     }
 
     @Test

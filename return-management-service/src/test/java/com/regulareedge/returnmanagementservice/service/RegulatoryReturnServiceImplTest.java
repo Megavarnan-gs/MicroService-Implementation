@@ -10,6 +10,7 @@ import com.regulareedge.returnmanagementservice.exception.InvalidStatusTransitio
 import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundException;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryReturnRepository;
 import com.regulareedge.returnmanagementservice.service.implementation.RegulatoryReturnServiceImpl;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.ComplianceReferenceValidationService;
 import com.regulareedge.returnmanagementservice.service.interfaces.UserValidationService;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,6 +40,9 @@ class RegulatoryReturnServiceImplTest {
     @Mock
     private UserValidationService userValidationService;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private RegulatoryReturnServiceImpl regulatoryReturnService;
 
     private RegulatoryReturn regulatoryReturn;
@@ -46,7 +50,7 @@ class RegulatoryReturnServiceImplTest {
     @BeforeEach
     void setUp() {
         regulatoryReturnService = new RegulatoryReturnServiceImpl(
-                regulatoryReturnRepository, complianceReferenceValidationService, userValidationService);
+                regulatoryReturnRepository, complianceReferenceValidationService, userValidationService, auditLogService);
 
         regulatoryReturn = new RegulatoryReturn();
         regulatoryReturn.setReturnId(1);
@@ -78,6 +82,7 @@ class RegulatoryReturnServiceImplTest {
 
         assertEquals("Q1-2026", response.getReportingPeriod());
         assertEquals(ReturnStatus.DRAFT.name(), response.getStatus());
+        org.mockito.Mockito.verify(auditLogService).log(5, "RETURN_CREATED", "RegulatoryReturn", 1);
     }
 
     @Test

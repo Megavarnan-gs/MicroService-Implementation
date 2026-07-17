@@ -13,6 +13,7 @@ import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundExcept
 import com.regulareedge.returnmanagementservice.repository.PenaltyProceedingRepository;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryCorrespondenceRepository;
 import com.regulareedge.returnmanagementservice.service.implementation.PenaltyServiceImpl;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.ComplianceReferenceValidationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,6 +42,9 @@ class PenaltyServiceImplTest {
     @Mock
     private ComplianceReferenceValidationService complianceReferenceValidationService;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private PenaltyServiceImpl penaltyService;
 
     private RegulatoryCorrespondence correspondence;
@@ -49,7 +53,8 @@ class PenaltyServiceImplTest {
     @BeforeEach
     void setUp() {
         penaltyService = new PenaltyServiceImpl(
-                penaltyProceedingRepository, correspondenceRepository, complianceReferenceValidationService);
+                penaltyProceedingRepository, correspondenceRepository, complianceReferenceValidationService,
+                auditLogService);
 
         correspondence = new RegulatoryCorrespondence();
         correspondence.setCorrespondenceId(1);
@@ -82,6 +87,7 @@ class PenaltyServiceImplTest {
 
         assertEquals("Late Filing", response.getPenaltyType());
         assertEquals(PenaltyStatus.OPEN, response.getStatus());
+        org.mockito.Mockito.verify(auditLogService).log(null, "PENALTY_CREATED", "PenaltyProceeding", 100);
     }
 
     @Test

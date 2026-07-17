@@ -2,4 +2,5 @@ com\regulareedge\returnmanagementservice\controller\PenaltyControllerTest.class
 com\regulareedge\returnmanagementservice\service\RegulatoryReturnServiceImplTest.class
 com\regulareedge\returnmanagementservice\controller\RegulatoryReturnControllerTest.class
 com\regulareedge\returnmanagementservice\service\CorrespondenceServiceImplTest.class
+com\regulareedge\returnmanagementservice\service\AuditLogServiceImplTest.class
 com\regulareedge\returnmanagementservice\service\PenaltyServiceImplTest.class

@@ -10,6 +10,7 @@ C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\c
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\service\implementation\PenaltyServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\common\enums\ScheduleStatus.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\repository\SubmissionRecordRepository.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\service\interfaces\AuditLogService.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\entity\RegulatoryReturn.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\response\ApiErrorResponse.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\entity\ReturnSchedule.java
@@ -17,6 +18,7 @@ C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\c
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\response\PenaltyProceedingResponse.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\exception\DuplicateResourceException.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\common\enums\CorrespondenceType.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\response\AuditLogResponse.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\common\enums\ReturnStatus.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\controller\PenaltyController.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\request\UpdatePenaltyStatusRequest.java
@@ -47,14 +49,17 @@ C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\c
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\config\SwaggerConfig.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\common\constants\AppConstants.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\exception\GlobalExceptionHandler.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\controller\AuditLogController.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\entity\SubmissionRecord.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\service\interfaces\ComplianceReferenceValidationService.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\service\interfaces\SubmissionRecordService.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\common\enums\SubmissionStatus.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\exception\InvalidStatusTransitionException.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\repository\AuditLogRepository.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\mapper\RegulatoryReturnMapper.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\config\FeignConfig.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\response\ReturnScheduleResponse.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\mapper\AuditLogMapper.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\ReturnManagementServiceApplication.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\request\SubmissionRecordRequest.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\feignclient\UserServiceClient.java
@@ -78,7 +83,9 @@ C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\c
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\request\RegulatoryReturnRequest.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\request\UpdateReturnStatusRequest.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\response\CcoDashboardResponse.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\service\implementation\AuditLogServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\controller\SubmissionRecordController.java
+C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\entity\AuditLog.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\common\constants\SecurityConstants.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\dto\request\UpdateCorrespondenceStatusRequest.java
 C:\Users\2507305\Desktop\MicroServices\return-management-service\src\main\java\com\regulareedge\returnmanagementservice\service\implementation\ComplianceReferenceValidationServiceImpl.java

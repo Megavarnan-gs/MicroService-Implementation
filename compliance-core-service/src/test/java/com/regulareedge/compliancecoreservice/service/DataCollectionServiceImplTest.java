@@ -11,6 +11,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.repository.ComplianceCalendarRepository;
 import com.regulareedge.compliancecoreservice.repository.DataCollectionRequestRepository;
 import com.regulareedge.compliancecoreservice.service.implementation.DataCollectionServiceImpl;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.UserValidationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,6 +40,9 @@ class DataCollectionServiceImplTest {
     @Mock
     private UserValidationService userValidationService;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private DataCollectionServiceImpl dataCollectionService;
 
     private ComplianceCalendar calendar;
@@ -46,7 +50,8 @@ class DataCollectionServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        dataCollectionService = new DataCollectionServiceImpl(requestRepository, calendarRepository, userValidationService);
+        dataCollectionService = new DataCollectionServiceImpl(requestRepository, calendarRepository,
+                userValidationService, auditLogService);
 
         calendar = new ComplianceCalendar();
         calendar.setCalendarId(100);

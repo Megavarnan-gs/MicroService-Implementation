@@ -13,11 +13,14 @@ C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\entity\ControlEvidence.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\mapper\ComplianceReportMapper.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\interfaces\ComplianceCoreQueryService.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\interfaces\AuditLogService.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\entity\AuditLog.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\security\JwtAuthenticationFilter.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\common\enums\AuditRating.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\security\JwtAuthenticationEntryPoint.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\dto\response\PenaltyProceedingRefResponse.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\repository\AuditReviewRepository.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\dto\response\AuditLogResponse.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\repository\ComplianceReportRepository.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\implementation\ReturnManagementQueryServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\dto\response\ApiErrorResponse.java
@@ -27,6 +30,7 @@ C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\aspect\LoggingAspect.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\interfaces\DashboardAggregationService.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\AuditAnalyticsServiceApplication.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\repository\AuditLogRepository.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\common\constants\AppConstants.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\implementation\DashboardAggregationServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\controller\AuditReviewController.java
@@ -44,9 +48,11 @@ C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\dto\response\RegulatoryReturnRefResponse.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\interfaces\ComplianceReportService.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\config\SwaggerConfig.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\controller\AuditLogController.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\exception\InvalidRequestException.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\interfaces\ControlEvidenceService.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\implementation\ComplianceCoreQueryServiceImpl.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\implementation\AuditLogServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\dto\response\ObligationRefResponse.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\feignclient\fallback\ComplianceCoreServiceClientFallback.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\service\implementation\ComplianceReportServiceImpl.java
@@ -56,6 +62,7 @@ C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\common\enums\ReportScope.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\config\FeignConfig.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\config\CorsConfig.java
+C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\mapper\AuditLogMapper.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\exception\GlobalExceptionHandler.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\controller\DashboardController.java
 C:\Users\2507305\Desktop\MicroServices\audit-analytics-service\src\main\java\com\regulareedge\auditanalyticsservice\dto\response\ControlEvidenceResponse.java

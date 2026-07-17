@@ -11,6 +11,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.mapper.DataCollectionRequestMapper;
 import com.regulareedge.compliancecoreservice.repository.ComplianceCalendarRepository;
 import com.regulareedge.compliancecoreservice.repository.DataCollectionRequestRepository;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.DataCollectionService;
 import com.regulareedge.compliancecoreservice.service.interfaces.UserValidationService;
 import org.slf4j.Logger;
@@ -27,13 +28,16 @@ public class DataCollectionServiceImpl implements DataCollectionService {
     private final DataCollectionRequestRepository requestRepository;
     private final ComplianceCalendarRepository calendarRepository;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public DataCollectionServiceImpl(DataCollectionRequestRepository requestRepository,
                                       ComplianceCalendarRepository calendarRepository,
-                                      UserValidationService userValidationService) {
+                                      UserValidationService userValidationService,
+                                      AuditLogService auditLogService) {
         this.requestRepository = requestRepository;
         this.calendarRepository = calendarRepository;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -58,6 +62,8 @@ public class DataCollectionServiceImpl implements DataCollectionService {
         entity.setStatus(DataRequestStatus.PENDING);
 
         DataCollectionRequest saved = requestRepository.save(entity);
+        auditLogService.log(request.getDataOwnerId(), "DATA_REQUEST_CREATED", "DataCollectionRequest",
+                saved.getRequestId());
         return DataCollectionRequestMapper.toResponse(saved);
     }
 
@@ -76,6 +82,8 @@ public class DataCollectionServiceImpl implements DataCollectionService {
 
         entity.setStatus(request.getStatus());
         DataCollectionRequest saved = requestRepository.save(entity);
+        auditLogService.log(saved.getDataOwnerId(), "DATA_REQUEST_STATUS_UPDATED", "DataCollectionRequest",
+                saved.getRequestId());
         return DataCollectionRequestMapper.toResponse(saved);
     }
 

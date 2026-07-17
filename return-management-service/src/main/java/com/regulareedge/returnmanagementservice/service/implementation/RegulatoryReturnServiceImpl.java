@@ -10,6 +10,7 @@ import com.regulareedge.returnmanagementservice.exception.InvalidStatusTransitio
 import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundException;
 import com.regulareedge.returnmanagementservice.mapper.RegulatoryReturnMapper;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryReturnRepository;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.ComplianceReferenceValidationService;
 import com.regulareedge.returnmanagementservice.service.interfaces.RegulatoryReturnService;
 import com.regulareedge.returnmanagementservice.service.interfaces.UserValidationService;
@@ -27,13 +28,16 @@ public class RegulatoryReturnServiceImpl implements RegulatoryReturnService {
     private final RegulatoryReturnRepository regulatoryReturnRepository;
     private final ComplianceReferenceValidationService complianceReferenceValidationService;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public RegulatoryReturnServiceImpl(RegulatoryReturnRepository regulatoryReturnRepository,
                                         ComplianceReferenceValidationService complianceReferenceValidationService,
-                                        UserValidationService userValidationService) {
+                                        UserValidationService userValidationService,
+                                        AuditLogService auditLogService) {
         this.regulatoryReturnRepository = regulatoryReturnRepository;
         this.complianceReferenceValidationService = complianceReferenceValidationService;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -59,6 +63,7 @@ public class RegulatoryReturnServiceImpl implements RegulatoryReturnService {
         regulatoryReturn.setStatus(ReturnStatus.DRAFT.name());
 
         RegulatoryReturn saved = regulatoryReturnRepository.save(regulatoryReturn);
+        auditLogService.log(saved.getPreparedById(), "RETURN_CREATED", "RegulatoryReturn", saved.getReturnId());
         return RegulatoryReturnMapper.toResponse(saved);
     }
 
@@ -101,6 +106,7 @@ public class RegulatoryReturnServiceImpl implements RegulatoryReturnService {
 
         regulatoryReturn.setStatus(request.getStatus());
         RegulatoryReturn saved = regulatoryReturnRepository.save(regulatoryReturn);
+        auditLogService.log(null, "RETURN_STATUS_UPDATED", "RegulatoryReturn", saved.getReturnId());
         return RegulatoryReturnMapper.toResponse(saved);
     }
 

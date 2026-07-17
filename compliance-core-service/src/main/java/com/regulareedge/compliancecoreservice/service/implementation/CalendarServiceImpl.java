@@ -10,6 +10,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.mapper.CalendarMapper;
 import com.regulareedge.compliancecoreservice.repository.ComplianceCalendarRepository;
 import com.regulareedge.compliancecoreservice.repository.RegulatoryObligationRepository;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.CalendarService;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +22,14 @@ public class CalendarServiceImpl implements CalendarService {
 
     private final ComplianceCalendarRepository calendarRepository;
     private final RegulatoryObligationRepository obligationRepository;
+    private final AuditLogService auditLogService;
 
     public CalendarServiceImpl(ComplianceCalendarRepository calendarRepository,
-                                RegulatoryObligationRepository obligationRepository) {
+                                RegulatoryObligationRepository obligationRepository,
+                                AuditLogService auditLogService) {
         this.calendarRepository = calendarRepository;
         this.obligationRepository = obligationRepository;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -42,6 +46,7 @@ public class CalendarServiceImpl implements CalendarService {
         calendar.setStatus(CalendarStatus.PENDING);
 
         ComplianceCalendar saved = calendarRepository.save(calendar);
+        auditLogService.log(null, "CALENDAR_CREATED", "ComplianceCalendar", saved.getCalendarId());
         return CalendarMapper.toResponse(saved);
     }
 
@@ -82,6 +87,7 @@ public class CalendarServiceImpl implements CalendarService {
 
         calendar.setStatus(request.getStatus());
         ComplianceCalendar saved = calendarRepository.save(calendar);
+        auditLogService.log(null, "CALENDAR_STATUS_UPDATED", "ComplianceCalendar", saved.getCalendarId());
         return CalendarMapper.toResponse(saved);
     }
 }

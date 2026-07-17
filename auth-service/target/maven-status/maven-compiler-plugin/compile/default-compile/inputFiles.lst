@@ -6,6 +6,7 @@ C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareed
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\entity\PasswordResetToken.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\interfaces\PasswordResetService.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\AuthServiceApplication.java
+C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\implementation\AuditLogServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\request\ResetPasswordRequest.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\request\RefreshTokenRequest.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\repository\PasswordResetTokenRepository.java
@@ -21,15 +22,18 @@ C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareed
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\aspect\LoggingAspect.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\response\ApiErrorResponse.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\controller\AuthController.java
+C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\response\AuditLogResponse.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\implementation\CustomUserDetailsServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\interfaces\TokenService.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\request\DeleteUserByEmailRequest.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\common\enums\UserStatus.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\response\UserResponse.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\exception\UnauthorizedAccessException.java
+C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\mapper\AuditLogMapper.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\security\JwtUtil.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\config\SecurityConfig.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\request\ForgotPasswordRequest.java
+C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\interfaces\AuditLogService.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\exception\DuplicateResourceException.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\controller\UserController.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\exception\InvalidCredentialsException.java
@@ -42,6 +46,7 @@ C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareed
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\implementation\PasswordResetServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\implementation\UserServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\mapper\UserMapper.java
+C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\controller\AuditLogController.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\common\constants\SecurityConstants.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\service\implementation\AuthServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\auth-service\src\main\java\com\regulareedge\authservice\dto\request\AssignRoleRequest.java

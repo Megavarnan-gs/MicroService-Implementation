@@ -10,6 +10,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.repository.ComplianceCalendarRepository;
 import com.regulareedge.compliancecoreservice.repository.RegulatoryObligationRepository;
 import com.regulareedge.compliancecoreservice.service.implementation.CalendarServiceImpl;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,6 +35,9 @@ class CalendarServiceImplTest {
     @Mock
     private RegulatoryObligationRepository obligationRepository;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private CalendarServiceImpl calendarService;
 
     private RegulatoryObligation obligation;
@@ -41,7 +45,7 @@ class CalendarServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        calendarService = new CalendarServiceImpl(calendarRepository, obligationRepository);
+        calendarService = new CalendarServiceImpl(calendarRepository, obligationRepository, auditLogService);
 
         obligation = new RegulatoryObligation();
         obligation.setObligationId(10);

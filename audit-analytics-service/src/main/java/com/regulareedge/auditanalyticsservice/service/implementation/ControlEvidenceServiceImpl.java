@@ -8,6 +8,7 @@ import com.regulareedge.auditanalyticsservice.entity.ControlEvidence;
 import com.regulareedge.auditanalyticsservice.exception.ResourceNotFoundException;
 import com.regulareedge.auditanalyticsservice.mapper.ControlEvidenceMapper;
 import com.regulareedge.auditanalyticsservice.repository.ControlEvidenceRepository;
+import com.regulareedge.auditanalyticsservice.service.interfaces.AuditLogService;
 import com.regulareedge.auditanalyticsservice.service.interfaces.ControlEvidenceService;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,12 @@ import java.util.List;
 public class ControlEvidenceServiceImpl implements ControlEvidenceService {
 
     private final ControlEvidenceRepository controlEvidenceRepository;
+    private final AuditLogService auditLogService;
 
-    public ControlEvidenceServiceImpl(ControlEvidenceRepository controlEvidenceRepository) {
+    public ControlEvidenceServiceImpl(ControlEvidenceRepository controlEvidenceRepository,
+                                       AuditLogService auditLogService) {
         this.controlEvidenceRepository = controlEvidenceRepository;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -33,6 +37,7 @@ public class ControlEvidenceServiceImpl implements ControlEvidenceService {
         evidence.setStatus(EvidenceStatus.UPLOADED);
 
         ControlEvidence saved = controlEvidenceRepository.save(evidence);
+        auditLogService.log(request.getUploadedById(), "EVIDENCE_UPLOADED", "ControlEvidence", saved.getEvidenceId());
         return ControlEvidenceMapper.toResponse(saved);
     }
 
@@ -52,6 +57,7 @@ public class ControlEvidenceServiceImpl implements ControlEvidenceService {
         evidence.setStatus(request.getStatus());
 
         ControlEvidence saved = controlEvidenceRepository.save(evidence);
+        auditLogService.log(null, "EVIDENCE_STATUS_UPDATED", "ControlEvidence", saved.getEvidenceId());
         return ControlEvidenceMapper.toResponse(saved);
     }
 }

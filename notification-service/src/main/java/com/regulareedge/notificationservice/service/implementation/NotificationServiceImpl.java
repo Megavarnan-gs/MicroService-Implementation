@@ -7,6 +7,7 @@ import com.regulareedge.notificationservice.entity.Notification;
 import com.regulareedge.notificationservice.exception.ResourceNotFoundException;
 import com.regulareedge.notificationservice.mapper.NotificationMapper;
 import com.regulareedge.notificationservice.repository.NotificationRepository;
+import com.regulareedge.notificationservice.service.interfaces.AuditLogService;
 import com.regulareedge.notificationservice.service.interfaces.NotificationService;
 import com.regulareedge.notificationservice.service.interfaces.UserValidationService;
 import org.slf4j.Logger;
@@ -25,11 +26,14 @@ public class NotificationServiceImpl implements NotificationService {
 
     private final NotificationRepository notificationRepository;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public NotificationServiceImpl(NotificationRepository notificationRepository,
-                                    UserValidationService userValidationService) {
+                                    UserValidationService userValidationService,
+                                    AuditLogService auditLogService) {
         this.notificationRepository = notificationRepository;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -53,6 +57,7 @@ public class NotificationServiceImpl implements NotificationService {
         notification.setCreatedDate(LocalDateTime.now());
 
         Notification saved = notificationRepository.save(notification);
+        auditLogService.log(saved.getUserId(), "NOTIFICATION_CREATED", "Notification", saved.getNotificationId());
         return NotificationMapper.toResponse(saved);
     }
 
@@ -82,6 +87,7 @@ public class NotificationServiceImpl implements NotificationService {
 
         notification.setStatus(NotificationStatus.READ);
         Notification saved = notificationRepository.save(notification);
+        auditLogService.log(saved.getUserId(), "NOTIFICATION_READ", "Notification", saved.getNotificationId());
         return NotificationMapper.toResponse(saved);
     }
 
@@ -90,6 +96,7 @@ public class NotificationServiceImpl implements NotificationService {
         List<Notification> unread = notificationRepository.findByUserIdAndStatus(userId, NotificationStatus.UNREAD);
         unread.forEach(notification -> notification.setStatus(NotificationStatus.READ));
         List<Notification> saved = notificationRepository.saveAll(unread);
+        auditLogService.log(userId, "NOTIFICATION_ALL_READ", "Notification", null);
         return saved.stream()
                 .map(NotificationMapper::toResponse)
                 .toList();

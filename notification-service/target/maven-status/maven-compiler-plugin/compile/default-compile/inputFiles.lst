@@ -1,8 +1,10 @@
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\service\interfaces\AuditLogService.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\dto\request\CreateNotificationRequest.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\service\implementation\UserValidationServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\security\JwtAuthenticationFilter.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\mapper\NotificationMapper.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\controller\NotificationController.java
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\entity\AuditLog.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\config\CorsConfig.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\dto\response\UserExistsResponse.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\security\JwtAuthenticationEntryPoint.java
@@ -18,9 +20,12 @@ C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\re
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\dto\response\UnreadCountResponse.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\exception\InvalidRequestException.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\security\JwtUtil.java
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\mapper\AuditLogMapper.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\aspect\LoggingAspect.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\dto\response\ApiErrorResponse.java
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\dto\response\AuditLogResponse.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\repository\NotificationRepository.java
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\service\implementation\AuditLogServiceImpl.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\exception\ResourceNotFoundException.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\common\constants\SecurityConstants.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\entity\Notification.java
@@ -34,3 +39,5 @@ C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\re
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\config\SecurityConfig.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\config\SwaggerConfig.java
 C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\config\JwtProperties.java
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\repository\AuditLogRepository.java
+C:\Users\2507305\Desktop\MicroServices\notification-service\src\main\java\com\regulareedge\notificationservice\controller\AuditLogController.java

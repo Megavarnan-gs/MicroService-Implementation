@@ -10,41 +10,43 @@ public class AuditLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long auditId;
 
-    private String email;
+    private Integer userId;
 
     private String action;
 
-    @Column(length = 1000)
-    private String details;
+    private String entityType;
+
+    private Integer recordId;
 
     private LocalDateTime timestamp;
 
     public AuditLog() {
     }
 
-    public AuditLog(String email, String action, String details, LocalDateTime timestamp) {
-        this.email = email;
+    public AuditLog(Integer userId, String action, String entityType, Integer recordId, LocalDateTime timestamp) {
+        this.userId = userId;
         this.action = action;
-        this.details = details;
+        this.entityType = entityType;
+        this.recordId = recordId;
         this.timestamp = timestamp;
     }
 
-    public Long getId() {
-        return id;
+    public Long getAuditId() {
+        return auditId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAuditId(Long auditId) {
+        this.auditId = auditId;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getAction() {
@@ -55,12 +57,20 @@ public class AuditLog {
         this.action = action;
     }
 
-    public String getDetails() {
-        return details;
+    public String getEntityType() {
+        return entityType;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
+    }
+
+    public Integer getRecordId() {
+        return recordId;
+    }
+
+    public void setRecordId(Integer recordId) {
+        this.recordId = recordId;
     }
 
     public LocalDateTime getTimestamp() {

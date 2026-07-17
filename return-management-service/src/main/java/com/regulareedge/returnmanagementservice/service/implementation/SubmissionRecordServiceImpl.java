@@ -10,6 +10,7 @@ import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundExcept
 import com.regulareedge.returnmanagementservice.mapper.SubmissionRecordMapper;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryReturnRepository;
 import com.regulareedge.returnmanagementservice.repository.SubmissionRecordRepository;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.SubmissionRecordService;
 import com.regulareedge.returnmanagementservice.service.interfaces.UserValidationService;
 import org.slf4j.Logger;
@@ -27,13 +28,16 @@ public class SubmissionRecordServiceImpl implements SubmissionRecordService {
     private final SubmissionRecordRepository submissionRecordRepository;
     private final RegulatoryReturnRepository regulatoryReturnRepository;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public SubmissionRecordServiceImpl(SubmissionRecordRepository submissionRecordRepository,
                                         RegulatoryReturnRepository regulatoryReturnRepository,
-                                        UserValidationService userValidationService) {
+                                        UserValidationService userValidationService,
+                                        AuditLogService auditLogService) {
         this.submissionRecordRepository = submissionRecordRepository;
         this.regulatoryReturnRepository = regulatoryReturnRepository;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -58,6 +62,7 @@ public class SubmissionRecordServiceImpl implements SubmissionRecordService {
                 : SubmissionStatus.PENDING);
 
         SubmissionRecord saved = submissionRecordRepository.save(submissionRecord);
+        auditLogService.log(saved.getSubmittedById(), "SUBMISSION_RECORDED", "SubmissionRecord", saved.getSubmissionId());
         return SubmissionRecordMapper.toResponse(saved);
     }
 

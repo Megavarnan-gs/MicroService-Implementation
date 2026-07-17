@@ -10,6 +10,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.mapper.DataCertificationMapper;
 import com.regulareedge.compliancecoreservice.repository.DataCertificationRepository;
 import com.regulareedge.compliancecoreservice.repository.DataCollectionRequestRepository;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.DataCertificationService;
 import com.regulareedge.compliancecoreservice.service.interfaces.UserValidationService;
 import org.slf4j.Logger;
@@ -26,13 +27,16 @@ public class DataCertificationServiceImpl implements DataCertificationService {
     private final DataCertificationRepository certificationRepository;
     private final DataCollectionRequestRepository requestRepository;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public DataCertificationServiceImpl(DataCertificationRepository certificationRepository,
                                          DataCollectionRequestRepository requestRepository,
-                                         UserValidationService userValidationService) {
+                                         UserValidationService userValidationService,
+                                         AuditLogService auditLogService) {
         this.certificationRepository = certificationRepository;
         this.requestRepository = requestRepository;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -56,6 +60,8 @@ public class DataCertificationServiceImpl implements DataCertificationService {
         certification.setStatus(CertificationStatus.CERTIFIED);
 
         DataCertification saved = certificationRepository.save(certification);
+        auditLogService.log(request.getCertifiedById(), "DATA_CERTIFICATION_CREATED", "DataCertification",
+                saved.getCertificationId());
         return DataCertificationMapper.toResponse(saved);
     }
 

@@ -1,11 +1,8 @@
 package com.regulareedge.authservice.repository;
 
 import com.regulareedge.authservice.entity.AuditLog;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import java.util.List;
-
-public interface AuditLogRepository extends CrudRepository<AuditLog, Long> {
-
-    List<AuditLog> findByEmail(String email);
+public interface AuditLogRepository extends JpaRepository<AuditLog, Long>, JpaSpecificationExecutor<AuditLog> {
 }

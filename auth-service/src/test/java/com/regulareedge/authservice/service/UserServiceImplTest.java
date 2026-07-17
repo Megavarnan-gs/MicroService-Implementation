@@ -7,6 +7,7 @@ import com.regulareedge.authservice.entity.User;
 import com.regulareedge.authservice.exception.ResourceNotFoundException;
 import com.regulareedge.authservice.repository.UserRepository;
 import com.regulareedge.authservice.service.implementation.UserServiceImpl;
+import com.regulareedge.authservice.service.interfaces.AuditLogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,13 +33,16 @@ class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private UserServiceImpl userService;
 
     private User user;
 
     @BeforeEach
     void setUp() {
-        userService = new UserServiceImpl(userRepository);
+        userService = new UserServiceImpl(userRepository, auditLogService);
 
         user = new User();
         user.setUserId(1);

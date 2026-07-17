@@ -8,6 +8,7 @@ import com.regulareedge.auditanalyticsservice.entity.ControlEvidence;
 import com.regulareedge.auditanalyticsservice.exception.ResourceNotFoundException;
 import com.regulareedge.auditanalyticsservice.repository.ControlEvidenceRepository;
 import com.regulareedge.auditanalyticsservice.service.implementation.ControlEvidenceServiceImpl;
+import com.regulareedge.auditanalyticsservice.service.interfaces.AuditLogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,6 +22,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,13 +31,16 @@ class ControlEvidenceServiceImplTest {
     @Mock
     private ControlEvidenceRepository controlEvidenceRepository;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private ControlEvidenceServiceImpl controlEvidenceService;
 
     private ControlEvidence evidence;
 
     @BeforeEach
     void setUp() {
-        controlEvidenceService = new ControlEvidenceServiceImpl(controlEvidenceRepository);
+        controlEvidenceService = new ControlEvidenceServiceImpl(controlEvidenceRepository, auditLogService);
 
         evidence = new ControlEvidence();
         evidence.setEvidenceId(1);
@@ -62,6 +67,8 @@ class ControlEvidenceServiceImplTest {
 
         assertEquals(EvidenceStatus.UPLOADED, response.getStatus());
         assertEquals(100, response.getReturnId());
+
+        verify(auditLogService).log(7, "EVIDENCE_UPLOADED", "ControlEvidence", 1);
     }
 
     @Test

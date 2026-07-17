@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.regulareedge.authservice.controller.AuthControllerTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.650 s -- in com.regulareedge.authservice.controller.AuthControllerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.974 s -- in com.regulareedge.authservice.controller.AuthControllerTest

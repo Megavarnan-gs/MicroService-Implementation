@@ -7,6 +7,7 @@ import com.regulareedge.compliancecoreservice.entity.Regulator;
 import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundException;
 import com.regulareedge.compliancecoreservice.mapper.RegulatorMapper;
 import com.regulareedge.compliancecoreservice.repository.RegulatorRepository;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.RegulatorService;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,11 @@ import java.util.List;
 public class RegulatorServiceImpl implements RegulatorService {
 
     private final RegulatorRepository regulatorRepository;
+    private final AuditLogService auditLogService;
 
-    public RegulatorServiceImpl(RegulatorRepository regulatorRepository) {
+    public RegulatorServiceImpl(RegulatorRepository regulatorRepository, AuditLogService auditLogService) {
         this.regulatorRepository = regulatorRepository;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -31,6 +34,7 @@ public class RegulatorServiceImpl implements RegulatorService {
         regulator.setStatus(RegulatorStatus.ACTIVE);
 
         Regulator saved = regulatorRepository.save(regulator);
+        auditLogService.log(null, "REGULATOR_CREATED", "Regulator", saved.getRegulatorId());
         return RegulatorMapper.toResponse(saved);
     }
 
@@ -54,5 +58,6 @@ public class RegulatorServiceImpl implements RegulatorService {
                 .orElseThrow(() -> new ResourceNotFoundException("Regulator not found with id: " + regulatorId));
 
         regulatorRepository.delete(regulator);
+        auditLogService.log(null, "REGULATOR_DELETED", "Regulator", regulatorId);
     }
 }

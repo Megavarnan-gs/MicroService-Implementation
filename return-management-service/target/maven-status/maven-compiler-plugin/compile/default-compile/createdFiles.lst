@@ -1,11 +1,14 @@
+com\regulareedge\returnmanagementservice\controller\AuditLogController.class
 com\regulareedge\returnmanagementservice\feignclient\fallback\UserServiceClientFallback.class
 com\regulareedge\returnmanagementservice\dto\response\CalendarRefResponse.class
 com\regulareedge\returnmanagementservice\service\interfaces\UserValidationService.class
+com\regulareedge\returnmanagementservice\dto\response\AuditLogResponse.class
 com\regulareedge\returnmanagementservice\dto\response\UserExistsResponse.class
 com\regulareedge\returnmanagementservice\entity\RegulatoryCorrespondence.class
 com\regulareedge\returnmanagementservice\exception\ResourceNotFoundException.class
 com\regulareedge\returnmanagementservice\service\implementation\ComplianceReferenceValidationServiceImpl.class
 com\regulareedge\returnmanagementservice\repository\RegulatoryReturnRepository.class
+com\regulareedge\returnmanagementservice\service\implementation\AuditLogServiceImpl.class
 com\regulareedge\returnmanagementservice\config\FeignConfig.class
 com\regulareedge\returnmanagementservice\controller\RegulatoryReturnController.class
 com\regulareedge\returnmanagementservice\dto\request\PenaltyProceedingRequest.class
@@ -22,6 +25,7 @@ com\regulareedge\returnmanagementservice\dto\request\UpdatePenaltyStatusRequest.
 com\regulareedge\returnmanagementservice\service\implementation\PenaltyServiceImpl.class
 com\regulareedge\returnmanagementservice\repository\RegulatoryCorrespondenceRepository.class
 com\regulareedge\returnmanagementservice\dto\response\RegulatoryReturnResponse.class
+com\regulareedge\returnmanagementservice\service\interfaces\AuditLogService.class
 com\regulareedge\returnmanagementservice\feignclient\fallback\ComplianceCoreServiceClientFallback.class
 com\regulareedge\returnmanagementservice\dto\response\RegulatorRefResponse.class
 com\regulareedge\returnmanagementservice\service\interfaces\ComplianceReferenceValidationService.class
@@ -32,6 +36,7 @@ com\regulareedge\returnmanagementservice\security\JwtUtil.class
 com\regulareedge\returnmanagementservice\controller\ReturnScheduleController.class
 com\regulareedge\returnmanagementservice\dto\request\RegulatoryReturnRequest.class
 com\regulareedge\returnmanagementservice\dto\response\SubmissionRecordResponse.class
+com\regulareedge\returnmanagementservice\entity\AuditLog.class
 com\regulareedge\returnmanagementservice\entity\PenaltyProceeding.class
 com\regulareedge\returnmanagementservice\repository\SubmissionRecordRepository.class
 com\regulareedge\returnmanagementservice\service\interfaces\CorrespondenceService.class
@@ -63,6 +68,7 @@ com\regulareedge\returnmanagementservice\dto\response\ReturnScheduleResponse.cla
 com\regulareedge\returnmanagementservice\exception\GlobalExceptionHandler.class
 com\regulareedge\returnmanagementservice\dto\response\CcoDashboardResponse.class
 com\regulareedge\returnmanagementservice\dto\response\MessageResponse.class
+com\regulareedge\returnmanagementservice\repository\AuditLogRepository.class
 com\regulareedge\returnmanagementservice\common\enums\CorrespondenceType.class
 com\regulareedge\returnmanagementservice\config\JwtProperties.class
 com\regulareedge\returnmanagementservice\dto\response\ObligationRefResponse.class
@@ -72,6 +78,7 @@ com\regulareedge\returnmanagementservice\service\interfaces\PenaltyService.class
 com\regulareedge\returnmanagementservice\service\interfaces\RegulatoryReturnService.class
 com\regulareedge\returnmanagementservice\aspect\LoggingAspect.class
 com\regulareedge\returnmanagementservice\controller\PenaltyController.class
+com\regulareedge\returnmanagementservice\mapper\AuditLogMapper.class
 com\regulareedge\returnmanagementservice\dto\request\AssignCorrespondenceRequest.class
 com\regulareedge\returnmanagementservice\dto\response\RegulatoryCorrespondenceResponse.class
 com\regulareedge\returnmanagementservice\service\implementation\ReturnScheduleServiceImpl.class

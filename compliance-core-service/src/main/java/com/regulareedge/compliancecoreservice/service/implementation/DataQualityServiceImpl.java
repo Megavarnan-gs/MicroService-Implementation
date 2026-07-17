@@ -8,6 +8,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.mapper.DataQualityCheckMapper;
 import com.regulareedge.compliancecoreservice.repository.DataCollectionRequestRepository;
 import com.regulareedge.compliancecoreservice.repository.DataQualityCheckRepository;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.DataQualityService;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +19,14 @@ public class DataQualityServiceImpl implements DataQualityService {
 
     private final DataQualityCheckRepository checkRepository;
     private final DataCollectionRequestRepository requestRepository;
+    private final AuditLogService auditLogService;
 
     public DataQualityServiceImpl(DataQualityCheckRepository checkRepository,
-                                   DataCollectionRequestRepository requestRepository) {
+                                   DataCollectionRequestRepository requestRepository,
+                                   AuditLogService auditLogService) {
         this.checkRepository = checkRepository;
         this.requestRepository = requestRepository;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -41,6 +45,7 @@ public class DataQualityServiceImpl implements DataQualityService {
         check.setCheckedDate(request.getCheckedDate());
 
         DataQualityCheck saved = checkRepository.save(check);
+        auditLogService.log(null, "DATA_QUALITY_CHECK_CREATED", "DataQualityCheck", saved.getCheckId());
         return DataQualityCheckMapper.toResponse(saved);
     }
 

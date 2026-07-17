@@ -8,6 +8,7 @@ import com.regulareedge.notificationservice.entity.Notification;
 import com.regulareedge.notificationservice.exception.ResourceNotFoundException;
 import com.regulareedge.notificationservice.repository.NotificationRepository;
 import com.regulareedge.notificationservice.service.implementation.NotificationServiceImpl;
+import com.regulareedge.notificationservice.service.interfaces.AuditLogService;
 import com.regulareedge.notificationservice.service.interfaces.UserValidationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,13 +43,17 @@ class NotificationServiceImplTest {
     @Mock
     private UserValidationService userValidationService;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private NotificationServiceImpl notificationService;
 
     private Notification notification;
 
     @BeforeEach
     void setUp() {
-        notificationService = new NotificationServiceImpl(notificationRepository, userValidationService);
+        notificationService = new NotificationServiceImpl(notificationRepository, userValidationService,
+                auditLogService);
 
         notification = new Notification();
         notification.setNotificationId(1);
@@ -77,6 +82,7 @@ class NotificationServiceImplTest {
         assertEquals(NotificationStatus.UNREAD, captor.getValue().getStatus());
         assertEquals(10, captor.getValue().getUserId());
         assertEquals(1, response.getNotificationId());
+        verify(auditLogService).log(10, "NOTIFICATION_CREATED", "Notification", 1);
     }
 
     @Test
@@ -92,6 +98,7 @@ class NotificationServiceImplTest {
         NotificationResponse response = notificationService.create(request);
 
         assertEquals(1, response.getNotificationId());
+        verify(auditLogService).log(10, "NOTIFICATION_CREATED", "Notification", 1);
     }
 
     @Test

@@ -7,6 +7,7 @@ import com.regulareedge.compliancecoreservice.entity.Regulator;
 import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundException;
 import com.regulareedge.compliancecoreservice.repository.RegulatorRepository;
 import com.regulareedge.compliancecoreservice.service.implementation.RegulatorServiceImpl;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,13 +29,16 @@ class RegulatorServiceImplTest {
     @Mock
     private RegulatorRepository regulatorRepository;
 
+    @Mock
+    private AuditLogService auditLogService;
+
     private RegulatorServiceImpl regulatorService;
 
     private Regulator regulator;
 
     @BeforeEach
     void setUp() {
-        regulatorService = new RegulatorServiceImpl(regulatorRepository);
+        regulatorService = new RegulatorServiceImpl(regulatorRepository, auditLogService);
 
         regulator = new Regulator();
         regulator.setRegulatorId(1);

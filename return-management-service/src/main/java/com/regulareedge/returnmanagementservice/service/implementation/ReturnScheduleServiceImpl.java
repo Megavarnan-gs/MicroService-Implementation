@@ -10,6 +10,7 @@ import com.regulareedge.returnmanagementservice.exception.ResourceNotFoundExcept
 import com.regulareedge.returnmanagementservice.mapper.ReturnScheduleMapper;
 import com.regulareedge.returnmanagementservice.repository.RegulatoryReturnRepository;
 import com.regulareedge.returnmanagementservice.repository.ReturnScheduleRepository;
+import com.regulareedge.returnmanagementservice.service.interfaces.AuditLogService;
 import com.regulareedge.returnmanagementservice.service.interfaces.ReturnScheduleService;
 import com.regulareedge.returnmanagementservice.service.interfaces.UserValidationService;
 import org.slf4j.Logger;
@@ -26,13 +27,16 @@ public class ReturnScheduleServiceImpl implements ReturnScheduleService {
     private final ReturnScheduleRepository returnScheduleRepository;
     private final RegulatoryReturnRepository regulatoryReturnRepository;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public ReturnScheduleServiceImpl(ReturnScheduleRepository returnScheduleRepository,
                                       RegulatoryReturnRepository regulatoryReturnRepository,
-                                      UserValidationService userValidationService) {
+                                      UserValidationService userValidationService,
+                                      AuditLogService auditLogService) {
         this.returnScheduleRepository = returnScheduleRepository;
         this.regulatoryReturnRepository = regulatoryReturnRepository;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -54,6 +58,7 @@ public class ReturnScheduleServiceImpl implements ReturnScheduleService {
         schedule.setStatus(ScheduleStatus.DRAFT.name());
 
         ReturnSchedule saved = returnScheduleRepository.save(schedule);
+        auditLogService.log(saved.getValidatedById(), "SCHEDULE_CREATED", "ReturnSchedule", saved.getScheduleId());
         return ReturnScheduleMapper.toResponse(saved);
     }
 

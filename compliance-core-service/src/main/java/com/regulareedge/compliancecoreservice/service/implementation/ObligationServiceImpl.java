@@ -12,6 +12,7 @@ import com.regulareedge.compliancecoreservice.exception.ResourceNotFoundExceptio
 import com.regulareedge.compliancecoreservice.mapper.ObligationMapper;
 import com.regulareedge.compliancecoreservice.repository.RegulatorRepository;
 import com.regulareedge.compliancecoreservice.repository.RegulatoryObligationRepository;
+import com.regulareedge.compliancecoreservice.service.interfaces.AuditLogService;
 import com.regulareedge.compliancecoreservice.service.interfaces.ObligationService;
 import com.regulareedge.compliancecoreservice.service.interfaces.UserValidationService;
 import org.slf4j.Logger;
@@ -28,13 +29,16 @@ public class ObligationServiceImpl implements ObligationService {
     private final RegulatoryObligationRepository obligationRepository;
     private final RegulatorRepository regulatorRepository;
     private final UserValidationService userValidationService;
+    private final AuditLogService auditLogService;
 
     public ObligationServiceImpl(RegulatoryObligationRepository obligationRepository,
                                   RegulatorRepository regulatorRepository,
-                                  UserValidationService userValidationService) {
+                                  UserValidationService userValidationService,
+                                  AuditLogService auditLogService) {
         this.obligationRepository = obligationRepository;
         this.regulatorRepository = regulatorRepository;
         this.userValidationService = userValidationService;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -65,6 +69,7 @@ public class ObligationServiceImpl implements ObligationService {
         obligation.setStatus(ObligationStatus.ACTIVE);
 
         RegulatoryObligation saved = obligationRepository.save(obligation);
+        auditLogService.log(request.getOwnerId(), "OBLIGATION_CREATED", "RegulatoryObligation", saved.getObligationId());
         return ObligationMapper.toResponse(saved);
     }
 
@@ -104,6 +109,8 @@ public class ObligationServiceImpl implements ObligationService {
 
         obligation.setStatus(request.getStatus());
         RegulatoryObligation saved = obligationRepository.save(obligation);
+        auditLogService.log(saved.getOwnerId(), "OBLIGATION_STATUS_UPDATED", "RegulatoryObligation",
+                saved.getObligationId());
         return ObligationMapper.toResponse(saved);
     }
 }

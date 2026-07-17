@@ -7,6 +7,7 @@ import com.regulareedge.auditanalyticsservice.dto.response.AuditReviewResponse;
 import com.regulareedge.auditanalyticsservice.entity.AuditReview;
 import com.regulareedge.auditanalyticsservice.mapper.AuditReviewMapper;
 import com.regulareedge.auditanalyticsservice.repository.AuditReviewRepository;
+import com.regulareedge.auditanalyticsservice.service.interfaces.AuditLogService;
 import com.regulareedge.auditanalyticsservice.service.interfaces.AuditReviewService;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,11 @@ import java.util.List;
 public class AuditReviewServiceImpl implements AuditReviewService {
 
     private final AuditReviewRepository auditReviewRepository;
+    private final AuditLogService auditLogService;
 
-    public AuditReviewServiceImpl(AuditReviewRepository auditReviewRepository) {
+    public AuditReviewServiceImpl(AuditReviewRepository auditReviewRepository, AuditLogService auditLogService) {
         this.auditReviewRepository = auditReviewRepository;
+        this.auditLogService = auditLogService;
     }
 
     @Override
@@ -34,6 +37,7 @@ public class AuditReviewServiceImpl implements AuditReviewService {
         review.setStatus(AuditReviewStatus.DRAFT);
 
         AuditReview saved = auditReviewRepository.save(review);
+        auditLogService.log(request.getAuditorId(), "AUDIT_REVIEW_CREATED", "AuditReview", saved.getReviewId());
         return AuditReviewMapper.toResponse(saved);
     }
 

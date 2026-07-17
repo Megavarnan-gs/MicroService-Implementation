@@ -1,5 +1,6 @@
 com\regulareedge\auditanalyticsservice\controller\AuditReviewControllerTest.class
 com\regulareedge\auditanalyticsservice\controller\DashboardControllerTest.class
-com\regulareedge\auditanalyticsservice\service\ControlEvidenceServiceImplTest.class
+com\regulareedge\auditanalyticsservice\service\AuditLogServiceImplTest.class
 com\regulareedge\auditanalyticsservice\service\DashboardAggregationServiceImplTest.class
 com\regulareedge\auditanalyticsservice\service\AuditReviewServiceImplTest.class
+com\regulareedge\auditanalyticsservice\service\ControlEvidenceServiceImplTest.class
